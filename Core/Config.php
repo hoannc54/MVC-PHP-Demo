@@ -4,13 +4,17 @@ namespace Core;
 
 class Config
 {
-    const DB_HOST = 'localhost';
-
-    const DB_NAME = 'mvc';
-
-    const DB_USER = 'root';
-
-    const DB_PASSWORD = 'root';
-
     const SHOW_ERRORS = true;
+
+    // Tam thoi
+    public static function get($keys){
+        $keys = explode('.', $keys);
+
+        $file = $keys[0];
+
+        $config = include dirname(__DIR__) . '/config/' . $file . '.php';
+
+        return $config[$keys[1]];
+
+    }
 }

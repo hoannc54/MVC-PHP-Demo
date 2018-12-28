@@ -21,7 +21,7 @@ abstract class Model
 
 
     private function connect(){
-        $con = mysqli_connect(Config::DB_HOST,Config::DB_USER,Config::DB_PASSWORD,Config::DB_NAME);
+        $con = mysqli_connect(Config::get('database.host'),Config::get('database.username'),Config::get('database.password'),Config::get('database.database'));
 
         if (mysqli_connect_errno())
         {
