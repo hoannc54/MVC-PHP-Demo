@@ -13,7 +13,7 @@ class View
     {
         extract($args, EXTR_SKIP);
 
-        $file = dirname(__DIR__) . "/App/Views/$view";  // relative to Core directory
+        $file = dirname(__DIR__) . "/resources/views/$view";
         $file = $file . '.php';
 
         if (is_readable($file)) {
