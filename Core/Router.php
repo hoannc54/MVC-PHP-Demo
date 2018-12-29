@@ -52,7 +52,7 @@ class Router
     public function dispatch($url)
     {
         $url = $this->removeQueryStringVariables($url);
-//        var_dump($url);
+
         if ($this->match($url)) {
             $controller = $this->params['controller'];
 
@@ -70,7 +70,7 @@ class Router
                     $controller_object->$action();
 
                 } else {
-                    throw new \Exception("Method $action in controller $controller cannot be called directly - remove the Action suffix to call this method");
+                    throw new \Exception("Method $action in controller $controller cannot be called directly");
                 }
             } else {
                 throw new \Exception("Controller class $controller not found");
