@@ -10,14 +10,15 @@ class Router
 
     public function add($route, $params = [])
     {
+//        echo $route . "\n";
         $route = preg_replace('/\//', '\\/', $route);
-
+//        echo $route . "\n";
         $route = preg_replace('/\{([a-z]+)\}/', '(?P<\1>[a-z-]+)', $route);
-
+//        echo $route . "\n";
         $route = preg_replace('/\{([a-z]+):([^\}]+)\}/', '(?P<\1>\2)', $route);
-
+//        echo $route . "\n";
         $route = '/^' . $route . '$/i';
-
+//        echo $route . "\n";
         $this->routes[$route] = $params;
     }
 

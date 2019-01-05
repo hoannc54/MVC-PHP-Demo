@@ -12,16 +12,12 @@ use Core\Config;
 use Core\Controller;
 use Core\View;
 
-class HomeController extends Controller
+class UserController extends Controller
 {
     public function index(){
         $user = new User();
         $users = $user->getUsers();
-        return View::render('home/index', ['users' => $users]);
-    }
-
-    public function contact(){
-
-        return View::render('contact');
+        var_dump('aaa');
+        return View::render('user/index', ['users' => $users]);
     }
 }
